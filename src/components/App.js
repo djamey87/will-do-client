@@ -12,6 +12,8 @@ import PostList from './PostList';
 // actions
 import { fetchUserSession } from '../actions/user';
 
+import '../index.scss';
+
 class App extends React.Component {
 	componentDidMount() {
 		this.props.fetchUserSession();
