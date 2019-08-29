@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Router, Route, Link, Redirect, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 
 import history from '../lib/History';
 import AuthRoute from '../lib/AuthRoute';
@@ -10,7 +10,7 @@ import Login from './Login';
 import PostList from './PostList';
 
 // actions
-import { fetchUserSession } from '../actions';
+import { fetchUserSession } from '../actions/user';
 
 class App extends React.Component {
 	componentDidMount() {
