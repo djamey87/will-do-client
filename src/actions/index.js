@@ -18,6 +18,15 @@ export const fetchPosts = () => async dispatch => {
 	dispatch({ type: 'FETCH_POSTS', payload: response.data });
 };
 
+// get the locally signed in user
+export const fetchUserSession = () => async dispatch => {
+	const response = await todo.get(`/users/currentSession`);
+
+	console.log(`users ${JSON.stringify(response.data)}`);
+
+	dispatch({ type: 'FETCH_USER_SESSION', payload: response.data });
+};
+
 export const fetchUser = id => async dispatch => {
 	const response = await jsonPlaceholder.get(`/users/${id}`);
 
