@@ -12,11 +12,22 @@ import todo from '../apis/todo';
 // 		.value();
 // };
 
+export const login = ({ email, password }) => async dispatch => {
+	console.log(`users login ${email} ${password}`);
+
+	// const response = await todo.post(`/users/login`, { email, password });
+	const response = await todo.post(`/users/login`, { user: { email, password } });
+
+	console.log(`users login ${JSON.stringify(response.data)}`);
+
+	dispatch({ type: 'LOGIN', payload: response.data });
+};
+
 // get the locally signed in user
 export const fetchUserSession = () => async dispatch => {
 	const response = await todo.get(`/users/currentSession`);
 
-	console.log(`users ${JSON.stringify(response.data)}`);
+	console.log(`user session ${JSON.stringify(response.data)}`);
 
 	dispatch({ type: 'FETCH_USER_SESSION', payload: response.data });
 };

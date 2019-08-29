@@ -1,9 +1,18 @@
-export default (state = [], action) => {
+export default (state = {}, action) => {
 	switch (action.type) {
+		case 'LOGIN':
+			console.log('LOGIN', action);
+			return {
+				...state,
+				localUser: action.payload.user,
+			};
 		case 'FETCH_USER_SESSION':
-			return [...state, action.payload];
+			return {
+				...state,
+				localUser: action.payload.user,
+			};
 		case 'FETCH_USERS':
-			return [...state, action.payload];
+			return state;
 		default:
 			return state;
 	}

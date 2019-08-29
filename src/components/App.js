@@ -18,6 +18,9 @@ class App extends React.Component {
 	componentDidMount() {
 		this.props.fetchUserSession();
 	}
+	componentDidUpdate() {
+		console.log('componentDidUpdate', this.props);
+	}
 
 	render() {
 		return (
@@ -26,7 +29,7 @@ class App extends React.Component {
 					<Switch>
 						<Route exact path="/" component={Login} />
 
-						<AuthRoute path="/tasks" component={PostList} />
+						<AuthRoute path="/tasks" component={PostList} localUser={this.props.localUser} />
 					</Switch>
 				</div>
 			</Router>
