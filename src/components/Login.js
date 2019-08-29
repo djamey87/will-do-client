@@ -13,11 +13,32 @@ class Login extends React.Component {
 
 	render() {
 		return (
-			<form onSubmit={this.onSubmit}>
-				<label>
-					<Field name="sex" component="input" type="radio" value="male" /> Male
-				</label>
-			</form>
+			<div className="ui middle aligned center aligned grid">
+				<div className="column four wide margin-top-60">
+					<h2 className="ui teal image header">
+						<div className="content">Log-in to your account</div>
+					</h2>
+					<form onSubmit={this.onSubmit} className="ui large form">
+						<div className="ui stacked segment">
+							<div className="field">
+								<div className="ui left icon input">
+									<i className="user icon"></i>
+									<Field name="email" placeholder="E-mail address" component="input" type="text" />
+								</div>
+							</div>
+							<div className="field">
+								<div className="ui left icon input">
+									<i className="lock icon"></i>
+									<Field name="email" placeholder="Password" component="input" type="password" />
+								</div>
+							</div>
+							<div className="ui fluid large teal submit button">Login</div>
+						</div>
+
+						<div className="ui error message"></div>
+					</form>
+				</div>
+			</div>
 		);
 	}
 }
