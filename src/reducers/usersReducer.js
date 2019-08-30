@@ -7,6 +7,7 @@ export default (state = {}, action) => {
 				localUser: action.payload.user,
 			};
 		case 'FETCH_USER_SESSION':
+			console.log('FETCH_USER_SESSION', action);
 			return {
 				...state,
 				localUser: action.payload.user,

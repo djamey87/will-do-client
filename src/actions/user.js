@@ -29,6 +29,10 @@ export const fetchUserSession = () => async dispatch => {
 
 	console.log(`user session ${JSON.stringify(response.data)}`);
 
+	if (!response.data.user) {
+		response.data.user = null;
+	}
+
 	dispatch({ type: 'FETCH_USER_SESSION', payload: response.data });
 };
 
