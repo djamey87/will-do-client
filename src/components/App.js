@@ -7,7 +7,7 @@ import AuthRoute from '../lib/AuthRoute';
 
 // TODO: router implementation
 import Login from './Login';
-import PostList from './PostList';
+import TaskList from './TaskList';
 
 // actions
 import { fetchUserSession } from '../actions/user';
@@ -15,21 +15,31 @@ import { fetchUserSession } from '../actions/user';
 import '../index.scss';
 
 class App extends React.Component {
+	// default state (private to this component)
+	state = {
+		loading: true,
+	};
+
 	componentDidMount() {
+		console.log('componentDidMount', this.props.localUser);
 		this.props.fetchUserSession();
 	}
-	componentDidUpdate() {
-		console.log('componentDidUpdate', this.props);
+	componentDidUpdate(prevProps) {
+		console.log('componentDidUpdate', prevProps, this.props);
+
+		if (this.props.localUser !== prevProps.localUser) {
+			this.setState({ loading: false });
+		}
 	}
 
 	render() {
-		return (
+		return this.state.loading ? null : (
 			<Router history={history}>
 				<div>
 					<Switch>
 						<Route exact path="/" component={Login} />
 
-						<AuthRoute path="/tasks" component={PostList} localUser={this.props.localUser} />
+						<AuthRoute path="/tasks" component={TaskList} localUser={this.props.localUser} />
 					</Switch>
 				</div>
 			</Router>
