@@ -6,6 +6,12 @@ export default (state = {}, action) => {
 				...state,
 				localUser: action.payload.user,
 			};
+		case 'LOGOUT':
+			console.log('LOGOUT', action);
+			return {
+				...state,
+				localUser: null,
+			};
 		case 'FETCH_USER_SESSION':
 			console.log('FETCH_USER_SESSION', action);
 			return {
