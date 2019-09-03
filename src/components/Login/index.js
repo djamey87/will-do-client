@@ -29,8 +29,8 @@ class Login extends React.Component {
 	onSubmit = values => {
 		console.log('onSubmit', values);
 
-		// this.props.login(values);
-		this.props.login({ email: 'djamey87@gmail.com', password: 'daveisgreat' });
+		this.props.login(values);
+		// this.props.login({ email: 'djamey87@gmail.com', password: 'daveisgreat' });
 	};
 
 	render() {

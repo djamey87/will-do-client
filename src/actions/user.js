@@ -15,7 +15,6 @@ import todo from '../apis/todo';
 export const login = ({ email, password }) => async dispatch => {
 	console.log(`users login ${email} ${password}`);
 
-	// const response = await todo.post(`/users/login`, { email, password });
 	const response = await todo.post(`/users/login`, { user: { email, password } });
 
 	console.log(`users login ${JSON.stringify(response.data)}`);
