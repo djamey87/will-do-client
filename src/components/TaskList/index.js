@@ -1,11 +1,15 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import { fetchUsers } from '../actions/user';
-import Header from './Header';
+import { fetchUsers } from '../../actions/user';
+import Header from '../Header';
+
+// TODO:
+// 1. redux form for creating a task
+// 2. drag and drop listing of tasks
+// 3. carousel for different lists
 
 class TaskList extends React.Component {
 	componentDidMount() {
-		// this.props.fetchPostsAndUsers();
 		this.props.fetchUsers();
 	}
 
@@ -28,9 +32,7 @@ class TaskList extends React.Component {
 		return (
 			<div className="item">
 				<div className="content">
-					<div className="description">
-						<h2>Test</h2>
-					</div>
+					<div className="description"></div>
 				</div>
 			</div>
 		);
@@ -40,7 +42,7 @@ class TaskList extends React.Component {
 		return (
 			<Fragment>
 				<Header />
-				<div className="ui relaxed divided list">{this.renderList()}</div>;
+				<div className="ui relaxed divided list">{this.renderList()}</div>
 			</Fragment>
 		);
 	}
