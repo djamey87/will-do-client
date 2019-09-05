@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
+import avatarImg from '../images/placeholder.png'; // with import
 
 // actions
 import { logout } from '../actions/user';
@@ -13,9 +14,27 @@ class Header extends React.Component {
 		}
 
 		return (
-			<div className="header">
-				{user.name} <button onClick={this.props.logout}>Logout</button>
-			</div>
+			<Fragment>
+				<div className="ui secondary menu">
+					<a className="item active">Tasks</a>
+					<a className="item disabled">Users</a>
+					<div className="right menu">
+						<div className="item">
+							<div className="ui icon input" data-children-count="1">
+								<input type="text" placeholder="Search..." />
+								<i className="search link icon"></i>
+							</div>
+						</div>
+						<div className="item">
+							<img className="ui avatar image" src={avatarImg} />
+							<span>{user.name}</span>
+						</div>
+						<a className="item" onClick={this.props.logout}>
+							Logout
+						</a>
+					</div>
+				</div>
+			</Fragment>
 		);
 	}
 }
