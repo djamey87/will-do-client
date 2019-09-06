@@ -9,24 +9,22 @@ let CreateTaskForm = props => {
 		<div className="ui middle aligned center aligned grid">
 			<div className="column four wide margin-top-60">
 				<h2 className="ui teal image header">
-					<div className="content">Log-in to your account</div>
+					<div className="content">Create a new task</div>
 				</h2>
 				<form onSubmit={handleSubmit} className="ui large form">
 					<div className="ui stacked segment">
 						<div className="field">
-							<div className="ui left icon input">
-								<i className="user icon"></i>
-								<Field name="email" placeholder="E-mail address" component="input" type="text" />
+							<div className="ui input">
+								<Field name="title" placeholder="Title" component="input" type="text" />
 							</div>
 						</div>
 						<div className="field">
-							<div className="ui left icon input">
-								<i className="lock icon"></i>
-								<Field name="password" placeholder="Password" component="input" type="password" />
+							<div className="ui input">
+								<Field name="content" placeholder="Description" component="input" type="text" />
 							</div>
 						</div>
 						<button type="submit" className="ui fluid large teal submit button">
-							Login
+							Create
 						</button>
 					</div>
 
