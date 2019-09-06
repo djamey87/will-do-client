@@ -5,12 +5,12 @@ import { Router, Route, Switch } from 'react-router-dom';
 import history from '../lib/History';
 import AuthRoute from '../lib/AuthRoute';
 
-// TODO: router implementation
+import Header from './Header';
 import Login from './Login';
 import TaskList from './TaskList';
 
 // actions
-import { fetchUserSession } from '../actions/user';
+import { fetchUserSession } from '../actions/auth';
 
 import '../index.scss';
 
@@ -36,6 +36,7 @@ class App extends React.Component {
 		return this.state.loading ? null : (
 			<Router history={history}>
 				<div>
+					<Header />
 					<Switch>
 						<Route exact path="/" component={Login} />
 
