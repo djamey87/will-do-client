@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import history from '../../lib/History';
 
-import { login } from '../../actions/user';
+import { login } from '../../actions/auth';
 
 import LoginForm from './LoginForm';
 
