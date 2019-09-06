@@ -2,11 +2,11 @@ import { combineReducers } from 'redux';
 
 import { reducer as formReducer } from 'redux-form';
 
-import tasksReducer from './tasksReducer';
-import usersReducer from './usersReducer';
+import tasks from './tasks';
+import users from './users';
 
 export default combineReducers({
-	tasks: tasksReducer,
-	users: usersReducer,
+	tasks: tasks,
+	users: users,
 	form: formReducer,
 });
