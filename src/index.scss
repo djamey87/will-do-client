@@ -2,3 +2,13 @@
 @import 'styles/_variables.scss';
 @import 'styles/_helpers.scss';
 @import 'styles/_typography.scss';
+
+.top-navigation.ui.secondary.menu {
+	position: fixed;
+	width: 100%;
+	padding-top: 15px;
+	margin-top: 0;
+	margin-bottom: 0;
+	background-color: white;
+	z-index: 2;
+}

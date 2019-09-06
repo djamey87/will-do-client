@@ -18,7 +18,7 @@ class Header extends React.Component {
 
 		return (
 			<Fragment>
-				<div className="ui secondary menu">
+				<div className="top-navigation ui secondary menu">
 					<a className="item active">Tasks</a>
 					<a className="item disabled">Users</a>
 					<div className="right menu">

@@ -74,7 +74,9 @@ class TaskList extends React.Component {
 			<Fragment>
 				<CreateTaskForm onSubmit={this.onSubmit} />
 				{this.props.allTasks && this.props.allTasks.length > 0 && (
-					<div className="ui cards">{this.renderList(this.props.allTasks)}</div>
+					<div className="ui middle aligned center aligned grid">
+						<div className="ui column four wide">{this.renderList(this.props.allTasks)}</div>
+					</div>
 				)}
 			</Fragment>
 		);
