@@ -1,7 +1,9 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import { fetchUsers } from '../../actions/user';
-import Header from '../Header';
+
+import { createTask, fetchTasks } from '../../actions/task';
+
+import CreateTaskForm from './CreateTaskForm';
 
 // TODO:
 // 1. redux form for creating a task
@@ -10,7 +12,7 @@ import Header from '../Header';
 
 class TaskList extends React.Component {
 	componentDidMount() {
-		this.props.fetchUsers();
+		this.props.fetchTasks();
 	}
 
 	// renderList() {
@@ -28,31 +30,53 @@ class TaskList extends React.Component {
 	// 	});
 	// }
 
-	renderList() {
-		return (
-			<div className="item">
-				<div className="content">
-					<div className="description"></div>
+	componentDidUpdate(prevProps) {
+		console.log('[TaskList.componentDidUpdate]', prevProps, this.props);
+		// this.scrollToBottom();
+	}
+
+	// validate body of form, and push to server
+	onSubmit = values => {
+		console.log('onSubmit', values);
+
+		this.props.createTask(values);
+		// this.props.login({ email: 'djamey87@gmail.com', password: 'daveisgreat' });
+	};
+
+	renderList(tasks) {
+		console.log('renderList', tasks);
+		return tasks.map(task => {
+			return (
+				<div className="item" key={task._id}>
+					<div className="content">
+						<div className="description">
+							<h2>{task.title}</h2>
+						</div>
+					</div>
 				</div>
-			</div>
-		);
+			);
+		});
 	}
 
 	render() {
+		console.log('[TaskList.render]', this.props.allTasks);
 		return (
 			<Fragment>
-				<Header />
-				<div className="ui relaxed divided list">{this.renderList()}</div>
+				<CreateTaskForm onSubmit={this.onSubmit} />
+
+				{this.props.allTasks && this.props.allTasks.length > 0 && (
+					<div className="ui relaxed divided list">{this.renderList(this.props.allTasks)}</div>
+				)}
 			</Fragment>
 		);
 	}
 }
 
 const mapStateToProps = state => {
-	return { posts: state.posts };
+	return { allTasks: state.tasks.allTasks };
 };
 
 export default connect(
 	mapStateToProps,
-	{ fetchUsers }
+	{ createTask, fetchTasks }
 )(TaskList);
