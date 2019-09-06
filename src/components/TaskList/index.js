@@ -47,11 +47,21 @@ class TaskList extends React.Component {
 		console.log('renderList', tasks);
 		return tasks.map(task => {
 			return (
-				<div className="item" key={task._id}>
-					<div className="content">
-						<div className="description">
-							<h2>{task.title}</h2>
+				<div class="ui card">
+					<div class="content">
+						<div class="header">{task.title}</div>
+					</div>
+					<div class="content">
+						<div class="ui small feed">
+							<div class="event">
+								<div class="content">
+									<div class="summary">{task.content}</div>
+								</div>
+							</div>
 						</div>
+					</div>
+					<div class="extra content">
+						<button class="ui button">Start</button>
 					</div>
 				</div>
 			);
@@ -63,9 +73,8 @@ class TaskList extends React.Component {
 		return (
 			<Fragment>
 				<CreateTaskForm onSubmit={this.onSubmit} />
-
 				{this.props.allTasks && this.props.allTasks.length > 0 && (
-					<div className="ui relaxed divided list">{this.renderList(this.props.allTasks)}</div>
+					<div className="ui cards">{this.renderList(this.props.allTasks)}</div>
 				)}
 			</Fragment>
 		);
