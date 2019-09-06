@@ -18,7 +18,7 @@ export default (state = defaultState, action) => {
 
 			return {
 				...state,
-				allTasks: [...state.allTasks, action.newTask],
+				allTasks: [action.newTask, ...state.allTasks],
 			};
 		default:
 			return state;
