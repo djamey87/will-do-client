@@ -1,9 +1,12 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import avatarImg from '../images/placeholder.png'; // with import
+import avatarImg from '../assets/images/placeholder.png'; // with import
 
 // actions
-import { logout } from '../actions/user';
+import { logout } from '../actions/auth';
+
+// TODO:
+// 1. user / avatar drop down to show logout button
 
 class Header extends React.Component {
 	render() {
@@ -26,7 +29,7 @@ class Header extends React.Component {
 							</div>
 						</div>
 						<div className="item">
-							<img className="ui avatar image" src={avatarImg} />
+							<img className="ui avatar image" src={avatarImg} alt={`${user.name} profile`} />
 							<span>{user.name}</span>
 						</div>
 						<a className="item" onClick={this.props.logout}>
