@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 
-import { createTask, fetchTasks } from '../../actions/task';
+import { createTask, fetchTasks, deleteTask } from '../../actions/task';
 
 import CreateTaskForm from './CreateTaskForm';
 
@@ -35,6 +35,12 @@ class TaskList extends React.Component {
 		// this.scrollToBottom();
 	}
 
+	onDelete = ({ _id }) => {
+		console.log('onDelete', _id);
+
+		this.props.deleteTask(_id);
+	};
+
 	// validate body of form, and push to server
 	onSubmit = values => {
 		console.log('onSubmit', values);
@@ -43,30 +49,37 @@ class TaskList extends React.Component {
 		// this.props.login({ email: 'djamey87@gmail.com', password: 'daveisgreat' });
 	};
 
-	renderList(tasks) {
+	renderList = tasks => {
 		console.log('renderList', tasks);
 		return tasks.map(task => {
 			return (
-				<div class="ui card">
-					<div class="content">
-						<div class="header">{task.title}</div>
+				<div className="ui card" key={task._id}>
+					<div className="content">
+						<div className="header">{task.title}</div>
 					</div>
-					<div class="content">
-						<div class="ui small feed">
-							<div class="event">
-								<div class="content">
-									<div class="summary">{task.content}</div>
+					<div className="content">
+						<div className="ui small feed">
+							<div className="event">
+								<div className="content">
+									<div className="summary">{task.content}</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="extra content">
-						<button class="ui button">Start</button>
+					<div className="extra content">
+						<button
+							className="ui button"
+							onClick={() => {
+								this.onDelete(task);
+							}}>
+							Delete
+						</button>
+						<button className="ui button">Start</button>
 					</div>
 				</div>
 			);
 		});
-	}
+	};
 
 	render() {
 		console.log('[TaskList.render]', this.props.allTasks);
@@ -89,5 +102,5 @@ const mapStateToProps = state => {
 
 export default connect(
 	mapStateToProps,
-	{ createTask, fetchTasks }
+	{ createTask, fetchTasks, deleteTask }
 )(TaskList);

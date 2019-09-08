@@ -1,7 +1,7 @@
 // import _ from 'lodash';
 import todo from '../apis/todo';
 
-import { CREATE_TASK, FETCH_TASKS } from '../constants/task';
+import { CREATE_TASK, FETCH_TASKS, DELETE_TASK } from '../constants/task';
 
 // gotta create that shiz
 export const createTask = ({ title, content }) => async dispatch => {
@@ -20,4 +20,21 @@ export const fetchTasks = () => async dispatch => {
 	console.log(`fetchTasks ${JSON.stringify(response.data.tasks)}`);
 
 	dispatch({ type: FETCH_TASKS, payload: response.data });
+};
+
+export const deleteTask = _id => async dispatch => {
+	let response;
+
+	try {
+		response = await todo.delete(`/tasks/${_id}`);
+	} catch (err) {
+		console.warn(`issue deleting task with _id ${_id}`);
+
+		// TODO: dispatch to an errors store?
+		return;
+	}
+
+	console.log(`deleteTask ${JSON.stringify(response.data)}`);
+
+	dispatch({ type: DELETE_TASK, deletedTaskId: _id });
 };

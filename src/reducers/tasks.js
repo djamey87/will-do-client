@@ -1,4 +1,5 @@
-import { CREATE_TASK, FETCH_TASKS } from '../constants/task';
+import _ from 'lodash';
+import { CREATE_TASK, FETCH_TASKS, DELETE_TASK } from '../constants/task';
 
 const defaultState = {
 	allTasks: [],
@@ -19,6 +20,20 @@ export default (state = defaultState, action) => {
 			return {
 				...state,
 				allTasks: [action.newTask, ...state.allTasks],
+			};
+
+		case DELETE_TASK:
+			// TODO: if task id is found in the list, then remove
+			console.log(`${action.type} state`, state);
+
+			const { deletedTaskId } = action;
+
+			// remove the specified task from the list (note, its already removed on the back end at this points)
+			const updatedTaskList = state.allTasks.filter(task => String(task._id) !== String(deletedTaskId));
+
+			return {
+				...state,
+				allTasks: updatedTaskList,
 			};
 		default:
 			return state;
