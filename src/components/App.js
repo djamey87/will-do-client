@@ -41,6 +41,7 @@ class App extends React.Component {
 						<Route exact path="/" component={Login} />
 
 						<AuthRoute path="/tasks" component={TaskList} localUser={this.props.localUser} />
+						<AuthRoute path="/deletedTasks" component={TaskList} localUser={this.props.localUser} />
 					</Switch>
 				</div>
 			</Router>
