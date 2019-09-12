@@ -14,10 +14,11 @@ export const createTask = ({ title, content }) => async dispatch => {
 	dispatch({ type: CREATE_TASK, newTask: response.data.task });
 };
 
-export const fetchTasks = () => async dispatch => {
-	const response = await todo.get(`/tasks`);
+// TODO: fetch by status
+export const fetchTasks = ({ status }) => async dispatch => {
+	const response = await todo.get(`/tasks${status ? '?status=' + status : ''}`);
 
-	console.log(`fetchTasks ${JSON.stringify(response.data.tasks)}`);
+	console.log(`fetchTasks status: "${status}" ${JSON.stringify(response.data.tasks.length)}`);
 
 	dispatch({ type: FETCH_TASKS, payload: response.data });
 };

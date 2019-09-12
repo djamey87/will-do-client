@@ -1,9 +1,12 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 
+import history from '../../lib/History';
+
 import { createTask, fetchTasks, deleteTask } from '../../actions/task';
 
 import CreateTaskForm from './CreateTaskForm';
+import './index.scss';
 
 // TODO:
 // 1. redux form for creating a task
@@ -11,24 +14,28 @@ import CreateTaskForm from './CreateTaskForm';
 // 3. carousel for different lists
 
 class TaskList extends React.Component {
-	componentDidMount() {
-		this.props.fetchTasks();
-	}
+	static defaultProps = {
+		taskStatus: 'active',
+	};
 
-	// renderList() {
-	// 	return this.props.posts.map(post => {
-	// 		return (
-	// 			<div className="item" key={post.id}>
-	// 				<div className="content">
-	// 					<div className="description">
-	// 						<h2>{post.title}</h2>
-	// 					</div>
-	// 					<UserHeader userId={post.userId} />
-	// 				</div>
-	// 			</div>
-	// 		);
-	// 	});
-	// }
+	componentDidMount() {
+		let status = this.props.taskStatus;
+
+		// TODO: query the url to determine the status needed for retrieval
+		console.log(
+			'[TaskList.componentDidMount]',
+			history.location.pathname,
+			history.location.pathname.indexOf('delete')
+		);
+
+		if (history.location.pathname.indexOf('delete') !== -1) {
+			status = 'deleted';
+		}
+
+		console.log('[TaskList.componentDidMount]', status);
+
+		this.props.fetchTasks({ status });
+	}
 
 	componentDidUpdate(prevProps) {
 		console.log('[TaskList.componentDidUpdate]', prevProps, this.props);
@@ -50,10 +57,10 @@ class TaskList extends React.Component {
 	};
 
 	renderList = tasks => {
-		console.log('renderList', tasks);
+		// console.log('renderList', tasks);
 		return tasks.map(task => {
 			return (
-				<div className="ui card" key={task._id}>
+				<div className="task-card ui card" key={task._id}>
 					<div className="content">
 						<div className="header">{task.title}</div>
 					</div>
@@ -87,8 +94,10 @@ class TaskList extends React.Component {
 			<Fragment>
 				<CreateTaskForm onSubmit={this.onSubmit} />
 				{this.props.allTasks && this.props.allTasks.length > 0 && (
-					<div className="ui middle aligned center aligned grid">
-						<div className="ui column four wide">{this.renderList(this.props.allTasks)}</div>
+					<div className="ui centered grid">
+						<div className="fourteen wide phone eight wide computer six wide tablet column">
+							{this.renderList(this.props.allTasks)}
+						</div>
 					</div>
 				)}
 			</Fragment>
