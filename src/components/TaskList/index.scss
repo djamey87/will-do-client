@@ -1,0 +1,12 @@
+@import '../../styles/_variables.scss';
+
+.task-card.ui.card {
+	width: auto;
+}
+
+.task-form {
+	position: sticky;
+	top: 50px;
+	z-index: 1;
+	background-color: white;
+}
