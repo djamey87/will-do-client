@@ -92,7 +92,7 @@ class TaskList extends React.Component {
 		console.log('[TaskList.render]', this.props.allTasks);
 		return (
 			<Fragment>
-				<CreateTaskForm onSubmit={this.onSubmit} />
+				{<CreateTaskForm onSubmit={this.onSubmit} />}
 				{this.props.allTasks && this.props.allTasks.length > 0 && (
 					<div className="ui centered grid">
 						<div className="fourteen wide phone eight wide computer six wide tablet column">

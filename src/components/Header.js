@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import avatarImg from '../assets/images/placeholder.png'; // with import
 
@@ -15,37 +15,50 @@ class Header extends React.Component {
 		const { user } = this.props;
 
 		if (!user) {
-			return null;
+			return (
+				<div className="top-navigation ui secondary menu">
+					<a className="logo logo-font" href="/">
+						willdo
+					</a>
+
+					<div className="right menu">{/*<a className="item active" href="/tasks">
+							Login
+						</a>*/}</div>
+				</div>
+			);
 		}
 
 		return (
-			<Fragment>
-				<div className="top-navigation ui secondary menu">
-					<a className="item active">Tasks</a>
-					{/*<a className="item disabled">Users</a>*/}
-					<div className="right menu">
-						<div className="item">
-							{/*<div className="ui icon input" data-children-count="1">
+			<div className="top-navigation ui secondary menu">
+				<a className="logo logo-font" href="/">
+					willdo
+				</a>
+				<a className="item active" href="/tasks">
+					Tasks
+				</a>
+				{/*<a className="item disabled">Users</a>*/}
+				<div className="right menu">
+					<div className="item">
+						{/*<div className="ui icon input" data-children-count="1">
 								<input type="text" placeholder="Search..." />
 								<i className="search link icon"></i>
 							</div>*/}
-						</div>
-						<div className="ui simple dropdown item">
-							<img className="ui avatar image" src={avatarImg} alt={`${user.name} profile`} />
-							<span>{user.name}</span>
-							<i className="dropdown icon"></i>
-							<div className="menu user-menu">
-								<a className="item" href="/deletedTasks">
-									Deleted Tasks
-								</a>
-								<div className="item" onClick={this.props.logout}>
-									Logout
-								</div>
+					</div>
+					<div className="ui simple dropdown item">
+						<img className="ui avatar image" src={avatarImg} alt={`${user.name} profile`} />
+						<span>{user.name}</span>
+						<i className="dropdown icon"></i>
+						<div className="menu user-menu">
+							<a className="item" href="/deletedTasks">
+								Deleted Tasks
+							</a>
+							<div className="item" onClick={this.props.logout}>
+								Logout
 							</div>
 						</div>
 					</div>
 				</div>
-			</Fragment>
+			</div>
 		);
 	}
 }

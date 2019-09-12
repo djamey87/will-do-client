@@ -2,6 +2,7 @@
 @import 'styles/_variables.scss';
 @import 'styles/_helpers.scss';
 @import 'styles/_typography.scss';
+@import 'styles/_overrides.scss';
 
 .top-navigation.ui.secondary.menu {
 	position: fixed;
@@ -11,6 +12,25 @@
 	margin-bottom: 0;
 	background-color: white;
 	z-index: 2;
+
+	.logo {
+		font-size: 20px;
+		padding-left: 15px;
+		color: $colour-purple-1;
+
+		position: relative;
+		vertical-align: middle;
+		line-height: 1;
+		text-decoration: none;
+		-webkit-tap-highlight-color: transparent;
+		-webkit-box-flex: 0;
+
+		box-shadow: none;
+		border: none;
+		margin: 0 0.35714286em;
+		background: 0 0;
+		align-self: center;
+	}
 
 	.user-menu.menu {
 		margin-top: 0;

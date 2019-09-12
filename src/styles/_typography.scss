@@ -1,1 +1,17 @@
 @import './_variables.scss';
+
+body {
+	font-family: Open Sans;
+}
+
+.logo-font {
+	font-family: 'Pacifico';
+	color: $colour-purple-1;
+}
+
+.purple-1 {
+	color: $colour-purple-1;
+}
+.purple-2 {
+	color: $colour-purple-2;
+}

@@ -198,6 +198,13 @@
 	text-transform: capitalize;
 }
 
+.bg-purple-1 {
+	background-color: $colour-purple-1;
+}
+.bg-purple-2 {
+	background-color: $colour-purple-1;
+}
+
 // screen overrides
 @media only screen and (min-width: 769px) {
 	.desktop-hide {

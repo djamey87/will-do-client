@@ -8,8 +8,8 @@ let LoginForm = props => {
 	return (
 		<div className="ui middle aligned center aligned grid">
 			<div className="column four wide margin-top-60">
-				<h2 className="ui teal image header">
-					<div className="content">Log-in to your account</div>
+				<h2 className="ui header">
+					<div className="content">Log in</div>
 				</h2>
 				<form onSubmit={handleSubmit} className="ui large form">
 					<div className="ui stacked segment">
@@ -25,7 +25,7 @@ let LoginForm = props => {
 								<Field name="password" placeholder="Password" component="input" type="password" />
 							</div>
 						</div>
-						<button type="submit" className="ui fluid large teal submit button">
+						<button type="submit" className="ui fluid large primary submit button">
 							Login
 						</button>
 					</div>

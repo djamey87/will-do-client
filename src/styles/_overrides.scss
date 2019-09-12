@@ -1,0 +1,9 @@
+@import './_variables.scss';
+
+.ui.button.primary {
+	background-color: $colour-purple-1;
+
+	&:hover {
+		background-color: $colour-purple-2;
+	}
+}

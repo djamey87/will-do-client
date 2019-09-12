@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 
 import { Field, reduxForm } from 'redux-form';
 
@@ -7,14 +7,13 @@ let CreateTaskForm = props => {
 	const [showForm, setShowForm] = useState(false);
 
 	// this is equivalent to componentDidMount
-	useEffect(() => {
-		console.log('[CreateTaskForm] mount', showForm);
-
-		// this is equivalent to componentWillUnmount
-		return () => {
-			console.log('[CreateTaskForm] unmount');
-		};
-	}, []);
+	// useEffect(() => {
+	//
+	// 	// this is equivalent to componentWillUnmount
+	// 	return () => {
+	// 		console.log('[CreateTaskForm] unmount');
+	// 	};
+	// }, []);
 
 	return (
 		<div className="ui middle aligned center aligned grid task-form">
@@ -22,7 +21,7 @@ let CreateTaskForm = props => {
 				<div className="column four wide">
 					<button
 						type="button"
-						className="ui fluid large teal submit button"
+						className="ui fluid large primary submit button"
 						onClick={() => {
 							setShowForm(true);
 						}}>
