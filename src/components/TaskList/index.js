@@ -4,14 +4,13 @@ import { connect } from 'react-redux';
 import history from '../../lib/History';
 
 import { createTask, fetchTasks, deleteTask } from '../../actions/task';
+import { toggleNewTaskForm } from '../../actions/ui';
 
 import CreateTaskForm from './CreateTaskForm';
 import './index.scss';
 
 // TODO:
-// 1. redux form for creating a task
-// 2. drag and drop listing of tasks
-// 3. carousel for different lists
+// [X] redux form for creating a task
 
 class TaskList extends React.Component {
 	static defaultProps = {
@@ -92,7 +91,9 @@ class TaskList extends React.Component {
 		console.log('[TaskList.render]', this.props.allTasks);
 		return (
 			<Fragment>
-				{<CreateTaskForm onSubmit={this.onSubmit} />}
+				{!this.props.showNewTask ? null : (
+					<CreateTaskForm onSubmit={this.onSubmit} hideForm={() => this.props.toggleNewTaskForm(false)} />
+				)}
 				{this.props.allTasks && this.props.allTasks.length > 0 && (
 					<div className="ui centered grid">
 						<div className="fourteen wide phone eight wide computer six wide tablet column">
@@ -106,10 +107,10 @@ class TaskList extends React.Component {
 }
 
 const mapStateToProps = state => {
-	return { allTasks: state.tasks.allTasks };
+	return { allTasks: state.tasks.allTasks, showNewTask: state.ui.showNewTask };
 };
 
 export default connect(
 	mapStateToProps,
-	{ createTask, fetchTasks, deleteTask }
+	{ createTask, fetchTasks, deleteTask, toggleNewTaskForm }
 )(TaskList);
