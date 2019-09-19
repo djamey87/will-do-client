@@ -6,10 +6,12 @@ import { CREATE_TASK } from '../constants/task';
 
 import tasks from './tasks';
 import users from './users';
+import ui from './ui';
 
 export default combineReducers({
 	tasks: tasks,
 	users: users,
+	ui: ui,
 
 	// handle form submissions
 	form: formReducer.plugin({
