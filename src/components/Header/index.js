@@ -8,6 +8,8 @@ import avatarImg from '../../assets/images/placeholder.png'; // with import
 import { logout } from '../../actions/auth';
 import { toggleNewTaskForm } from '../../actions/ui';
 
+import './index.scss';
+
 // TODO:
 // 1. user / avatar drop down to show logout button
 // 2. deleted task section
@@ -36,25 +38,25 @@ const Header = props => {
 				will-do
 			</a>
 
-			<div className="right menu">
-				<div className="item">
-					<button
-						type="button"
-						className="ui fluid large primary submit button"
-						onClick={() => {
-							props.toggleNewTaskForm(true);
-							console.warn('this should be updating!');
-						}}>
-						Add Task
-					</button>
-				</div>
+			<div className="item">
+				<button
+					type="button"
+					className="ui fluid large primary submit button"
+					onClick={() => {
+						props.toggleNewTaskForm(true);
+						console.warn('this should be updating!');
+					}}>
+					Add Task
+				</button>
+			</div>
 
-				<div className="item">
+			<div className="right menu">
+				{/*<div className="item">
 					<div className="ui icon input" data-children-count="1">
 						<input type="text" placeholder="Search..." value="status:active" />
 						<i className="search link icon"></i>
 					</div>
-				</div>
+				</div>*/}
 				<div className="ui simple dropdown item">
 					<span className="margin-right-15">{user.name}</span>
 					<img className="ui avatar image" src={avatarImg} alt={`${user.name} profile`} />
