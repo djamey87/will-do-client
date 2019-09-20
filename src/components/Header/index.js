@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import avatarImg from '../../assets/images/placeholder.png'; // with import
 
 // actions
 import { logout } from '../../actions/auth';
-import { toggleNewTaskForm, updateTheme } from '../../actions/ui';
+import { toggleNewTaskForm } from '../../actions/ui';
+// import { usePersistedState } from '../../actions/persistedState';
+import { useTheme } from '../../lib/ThemeContext';
 
 import './index.scss';
 
@@ -15,6 +17,10 @@ import './index.scss';
 
 const Header = props => {
 	const { user } = props;
+	const [theme, toggleTheme] = useTheme();
+	// const [theme, setTheme] = usePersistedState('theme', 'light');
+
+	// useEffect(() => {}, [theme]);
 
 	if (!user) {
 		return (
@@ -60,23 +66,9 @@ const Header = props => {
 					<img className="ui avatar image" src={avatarImg} alt={`${user.name} profile`} />
 					<i className="dropdown icon"></i>
 					<div className="menu user-menu">
-						{props.theme === 'dark' ? (
-							<div
-								className="item"
-								onClick={() => {
-									props.updateTheme('light');
-								}}>
-								Light mode
-							</div>
-						) : (
-							<div
-								className="item"
-								onClick={() => {
-									props.updateTheme('dark');
-								}}>
-								Dark mode
-							</div>
-						)}
+						<div className="item" onClick={toggleTheme}>
+							{theme === 'dark' ? 'Light mode' : 'Dark mode'}
+						</div>
 
 						<a className="item" href="/deletedTasks">
 							Deleted Tasks
@@ -95,12 +87,11 @@ const mapStateToProps = (state, ownProps) => {
 	return {
 		user: state.users.localUser,
 		showNewTask: state.ui.showNewTask,
-		theme: state.ui.theme,
 	};
 };
 
 export default connect(
 	mapStateToProps,
-	{ logout, toggleNewTaskForm, updateTheme }
+	{ logout, toggleNewTaskForm }
 )(Header);
 // export default Header;

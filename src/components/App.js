@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Router, Route, Switch } from 'react-router-dom';
 
+import { ThemeProvider, useTheme } from '../lib/ThemeContext';
 import history from '../lib/History';
 import AuthRoute from '../lib/AuthRoute';
 
@@ -11,11 +12,14 @@ import TaskList from './TaskList';
 
 // actions
 import { fetchUserSession } from '../actions/auth';
+// import usePersistedState from '../actions/persistedState';
 
 import '../index.scss';
 
 const App = props => {
 	const { localUser } = props;
+	const [theme, toggleTheme] = useTheme();
+	// const [theme, setTheme] = usePersistedState('theme', 'light');
 	// default state (private to this component)
 	// const [loading, setLoading] = useState(null);
 
@@ -32,7 +36,7 @@ const App = props => {
 
 	return localUser === false ? null : (
 		<Router history={history}>
-			<div className={`theme-${props.theme}`}>
+			<div className={`theme-${theme}`}>
 				<Header />
 				<Switch>
 					<Route exact path="/" component={Login} />
@@ -47,7 +51,6 @@ const App = props => {
 
 const mapStateToProps = state => ({
 	localUser: state.users.localUser,
-	theme: state.ui.theme,
 });
 
 export default connect(
