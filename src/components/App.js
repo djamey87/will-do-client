@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Router, Route, Switch } from 'react-router-dom';
 
@@ -14,40 +14,36 @@ import { fetchUserSession } from '../actions/auth';
 
 import '../index.scss';
 
-class App extends React.Component {
+const App = props => {
+	const { localUser } = props;
 	// default state (private to this component)
-	state = {
-		loading: true,
-	};
+	// const [loading, setLoading] = useState(null);
 
-	componentDidMount() {
-		console.log('componentDidMount', this.props.localUser);
-		this.props.fetchUserSession();
-	}
-	componentDidUpdate(prevProps) {
-		console.log('componentDidUpdate', prevProps, this.props);
+	// this is equivalent to componentDidMount
+	useEffect(() => {
+		console.log('App mounted');
+		props.fetchUserSession();
 
-		if (this.props.localUser !== prevProps.localUser) {
-			this.setState({ loading: false });
-		}
-	}
+		// this is equivalent to componentWillUnmount
+		return () => {
+			console.log('[CreateTaskForm] unmount');
+		};
+	}, []);
 
-	render() {
-		return this.state.loading ? null : (
-			<Router history={history}>
-				<div className={`theme-${this.props.theme}`}>
-					<Header />
-					<Switch>
-						<Route exact path="/" component={Login} />
+	return localUser === false ? null : (
+		<Router history={history}>
+			<div className={`theme-${props.theme}`}>
+				<Header />
+				<Switch>
+					<Route exact path="/" component={Login} />
 
-						<AuthRoute path="/tasks" component={TaskList} localUser={this.props.localUser} />
-						<AuthRoute path="/deletedTasks" component={TaskList} localUser={this.props.localUser} />
-					</Switch>
-				</div>
-			</Router>
-		);
-	}
-}
+					<AuthRoute path="/tasks" component={TaskList} localUser={localUser} />
+					<AuthRoute path="/deletedTasks" component={TaskList} localUser={localUser} />
+				</Switch>
+			</div>
+		</Router>
+	);
+};
 
 const mapStateToProps = state => ({
 	localUser: state.users.localUser,
