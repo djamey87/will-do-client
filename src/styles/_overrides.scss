@@ -1,10 +1,18 @@
-@import './_variables.scss';
+// @import './_variables.scss';
+@import './_themes.scss';
 
 .ui.button.primary {
-	background-color: $colour-purple-1;
+	// background-color: $colour-purple-1;
+
+	@include themify($themes) {
+		background-color: themed('colorPurple1');
+	}
 
 	&:hover,
 	&:focus {
-		background-color: $colour-purple-2;
+		// background-color: $colour-purple-2;
+		@include themify($themes) {
+			background-color: themed('colorPurple1');
+		}
 	}
 }

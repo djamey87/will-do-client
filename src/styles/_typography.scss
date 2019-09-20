@@ -1,4 +1,5 @@
-@import './_variables.scss';
+// @import './_variables.scss';
+@import './_themes.scss';
 
 body {
 	font-family: Open Sans;
@@ -6,12 +7,23 @@ body {
 
 .logo-font {
 	font-family: 'Pacifico';
-	color: $colour-purple-1;
+	// color: $colour-purple-1;
+
+	@include themify($themes) {
+		color: themed('colorPurple1');
+	}
 }
 
 .purple-1 {
-	color: $colour-purple-1;
+	// color: $colour-purple-1;
+	@include themify($themes) {
+		color: themed('colorPurple1');
+	}
 }
 .purple-2 {
-	color: $colour-purple-2;
+	// color: $colour-purple-2;
+
+	@include themify($themes) {
+		color: themed('colorPurple2');
+	}
 }

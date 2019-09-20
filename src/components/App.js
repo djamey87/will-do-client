@@ -35,7 +35,7 @@ class App extends React.Component {
 	render() {
 		return this.state.loading ? null : (
 			<Router history={history}>
-				<div>
+				<div className="theme-light">
 					<Header />
 					<Switch>
 						<Route exact path="/" component={Login} />
