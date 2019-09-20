@@ -6,7 +6,7 @@ import avatarImg from '../../assets/images/placeholder.png'; // with import
 // import showNewTask from '../hooks/showNewTask';
 // actions
 import { logout } from '../../actions/auth';
-import { toggleNewTaskForm } from '../../actions/ui';
+import { toggleNewTaskForm, updateTheme } from '../../actions/ui';
 
 import './index.scss';
 
@@ -62,6 +62,24 @@ const Header = props => {
 					<img className="ui avatar image" src={avatarImg} alt={`${user.name} profile`} />
 					<i className="dropdown icon"></i>
 					<div className="menu user-menu">
+						{props.theme === 'dark' ? (
+							<div
+								className="item"
+								onClick={() => {
+									props.updateTheme('light');
+								}}>
+								Light mode
+							</div>
+						) : (
+							<div
+								className="item"
+								onClick={() => {
+									props.updateTheme('dark');
+								}}>
+								Dark mode
+							</div>
+						)}
+
 						<a className="item" href="/deletedTasks">
 							Deleted Tasks
 						</a>
@@ -79,11 +97,12 @@ const mapStateToProps = (state, ownProps) => {
 	return {
 		user: state.users.localUser,
 		showNewTask: state.ui.showNewTask,
+		theme: state.ui.theme,
 	};
 };
 
 export default connect(
 	mapStateToProps,
-	{ logout, toggleNewTaskForm }
+	{ logout, toggleNewTaskForm, updateTheme }
 )(Header);
 // export default Header;

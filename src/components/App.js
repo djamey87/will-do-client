@@ -35,7 +35,7 @@ class App extends React.Component {
 	render() {
 		return this.state.loading ? null : (
 			<Router history={history}>
-				<div className="theme-dark">
+				<div className={`theme-${this.props.theme}`}>
 					<Header />
 					<Switch>
 						<Route exact path="/" component={Login} />
@@ -51,6 +51,7 @@ class App extends React.Component {
 
 const mapStateToProps = state => ({
 	localUser: state.users.localUser,
+	theme: state.ui.theme,
 });
 
 export default connect(
