@@ -5,6 +5,12 @@
 @import 'styles/_overrides.scss';
 @import 'styles/_themes.scss';
 
+body {
+	@include themify($themes) {
+		background: themed('backgroundColor');
+	}
+}
+
 .top-navigation.ui.secondary.menu {
 	position: fixed;
 	width: 100%;

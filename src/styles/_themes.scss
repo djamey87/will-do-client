@@ -6,10 +6,12 @@ $themes: (
 	light: (
 		colorPurple1: $light__colour-purple-1,
 		colorPurple2: $light__colour-purple-2,
+		backgroundColor: #ffffff,
 	),
 	dark: (
 		colorPurple1: $dark__colour-purple-1,
 		colorPurple2: $dark__colour-purple-2,
+		backgroundColor: #000000,
 	),
 );
 
