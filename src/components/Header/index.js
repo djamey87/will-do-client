@@ -2,8 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import avatarImg from '../../assets/images/placeholder.png'; // with import
 
-// hooks - can these be considered actions too?
-// import showNewTask from '../hooks/showNewTask';
 // actions
 import { logout } from '../../actions/auth';
 import { toggleNewTaskForm, updateTheme } from '../../actions/ui';
