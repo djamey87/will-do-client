@@ -22,6 +22,39 @@
 	}
 }
 
+.ui.button.secondary {
+	@include themify($themes) {
+		color: themed('colorPrimary');
+	}
+
+	@include themify($themes) {
+		background-color: themed('colorBackground');
+	}
+
+	&:hover,
+	&:focus {
+		// background-color: $colour-purple-2;
+		@include themify($themes) {
+			background-color: themed('colorBackground');
+		}
+		@include themify($themes) {
+			color: themed('colorPrimary');
+		}
+	}
+}
+
+.ui.form input[type='text'] {
+	@include themify($themes) {
+		background-color: themed('colorBackground');
+	}
+	@include themify($themes) {
+		color: themed('colorFontBody');
+	}
+	@include themify($themes) {
+		border-color: themed('colorPrimary');
+	}
+}
+
 .ui.menu .item,
 .ui.secondary.menu .dropdown.item:hover,
 .ui.secondary.menu .link.item:hover,

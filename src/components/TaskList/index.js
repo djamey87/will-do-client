@@ -95,7 +95,7 @@ class TaskList extends React.Component {
 					<CreateTaskForm onSubmit={this.onSubmit} hideForm={() => this.props.toggleNewTaskForm(false)} />
 				)}
 				{this.props.allTasks && this.props.allTasks.length > 0 && (
-					<div className="ui centered grid">
+					<div className="ui centered grid task-list">
 						<div className="fourteen wide phone eight wide computer six wide tablet column">
 							{this.renderList(this.props.allTasks)}
 						</div>

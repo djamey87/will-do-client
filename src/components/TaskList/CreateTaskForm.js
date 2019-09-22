@@ -8,9 +8,7 @@ let CreateTaskForm = props => {
 	return (
 		<div className="ui middle aligned center aligned grid task-form">
 			<div className="column four wide">
-				<h2 className="ui teal image header">
-					<div className="content">Create a new task</div>
-				</h2>
+				<h2 className="">Create a new task</h2>
 				<form onSubmit={handleSubmit} className="ui large form">
 					<div className="ui stacked segment">
 						<div className="field">
@@ -24,13 +22,13 @@ let CreateTaskForm = props => {
 							</div>
 						</div>
 
-						<button type="submit" className="ui fluid large teal submit button">
+						<button type="submit" className="ui fluid large primary button">
 							Create
 						</button>
 
 						<button
 							type="button"
-							className="ui fluid submit button margin-top-15"
+							className="ui fluid button secondary margin-top-15"
 							onClick={() => {
 								hideForm();
 							}}>

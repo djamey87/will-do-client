@@ -19,8 +19,9 @@ body {
 
 .top-navigation.ui.secondary.menu {
 	position: fixed;
+	top: 0;
 	width: 100%;
-	padding-top: 15px;
+	padding-top: 0;
 	margin-top: 0;
 	margin-bottom: 0;
 	z-index: 2;
