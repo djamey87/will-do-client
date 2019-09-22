@@ -1,7 +1,15 @@
 // import _ from 'lodash';
 import todo from '../apis/todo';
 
-import { LOGIN, LOGOUT, FETCH_USER_SESSION } from '../constants/auth';
+import { REGISTER, LOGIN, LOGOUT, FETCH_USER_SESSION } from '../constants/auth';
+
+export const register = ({ name, email, password }) => async dispatch => {
+	const response = await todo.post(`/users`, { name, email, password });
+
+	console.log(`users register ${JSON.stringify(response.data)}`);
+
+	dispatch({ type: REGISTER, payload: response.data });
+};
 
 export const login = ({ email, password }) => async dispatch => {
 	const response = await todo.post(`/users/login`, { user: { email, password } });

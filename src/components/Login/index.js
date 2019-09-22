@@ -34,7 +34,18 @@ class Login extends React.Component {
 	};
 
 	render() {
-		return <LoginForm onSubmit={this.onSubmit} />;
+		return (
+			<div className="ui middle aligned center aligned grid">
+				<div className="column four wide margin-top-60">
+					<h2 className="ui">Log in</h2>
+					<LoginForm onSubmit={this.onSubmit} />
+
+					<div className="margin-top-15">
+						<a href="/register">Not got an account?</a>
+					</div>
+				</div>
+			</div>
+		);
 	}
 }
 

@@ -8,6 +8,7 @@ import AuthRoute from '../lib/AuthRoute';
 
 import Header from './Header';
 import Login from './Login';
+import Register from './Register';
 import TaskList from './TaskList';
 
 // actions
@@ -43,6 +44,7 @@ const App = props => {
 				<Header />
 				<Switch>
 					<Route exact path="/" component={Login} />
+					<Route exact path="/register" component={Register} />
 
 					<AuthRoute path="/tasks" component={TaskList} localUser={localUser} />
 					<AuthRoute path="/deletedTasks" component={TaskList} localUser={localUser} />

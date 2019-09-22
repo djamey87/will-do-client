@@ -2,12 +2,18 @@ import React from 'react';
 
 import { Field, reduxForm } from 'redux-form';
 
-let LoginForm = props => {
+let RegisterForm = props => {
 	const { handleSubmit } = props;
 
 	return (
 		<form onSubmit={handleSubmit} className="ui large form">
 			<div className="ui stacked">
+				<div className="field">
+					<div className="ui left icon input">
+						<i className="user icon"></i>
+						<Field name="name" placeholder="Full name" component="input" type="text" />
+					</div>
+				</div>
 				<div className="field">
 					<div className="ui left icon input">
 						<i className="user icon"></i>
@@ -21,7 +27,7 @@ let LoginForm = props => {
 					</div>
 				</div>
 				<button type="submit" className="ui fluid large primary submit button">
-					Login
+					Register
 				</button>
 			</div>
 
@@ -30,9 +36,9 @@ let LoginForm = props => {
 	);
 };
 
-LoginForm = reduxForm({
+RegisterForm = reduxForm({
 	// a unique name for the form
-	form: 'login',
-})(LoginForm);
+	form: 'register',
+})(RegisterForm);
 
-export default LoginForm;
+export default RegisterForm;
