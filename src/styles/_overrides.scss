@@ -2,17 +2,31 @@
 @import './_themes.scss';
 
 .ui.button.primary {
-	// background-color: $colour-purple-1;
+	@include themify($themes) {
+		color: themed('colorBackground');
+	}
 
 	@include themify($themes) {
-		background-color: themed('colorPurple1');
+		background-color: themed('colorPrimary');
 	}
 
 	&:hover,
 	&:focus {
 		// background-color: $colour-purple-2;
 		@include themify($themes) {
-			background-color: themed('colorPurple1');
+			background-color: themed('colorSecondary');
 		}
+		@include themify($themes) {
+			color: themed('colorBackground');
+		}
+	}
+}
+
+.ui.menu .item,
+.ui.secondary.menu .dropdown.item:hover,
+.ui.secondary.menu .link.item:hover,
+.ui.secondary.menu a.item:hover {
+	@include themify($themes) {
+		color: themed('colorFontBody');
 	}
 }

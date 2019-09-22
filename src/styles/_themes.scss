@@ -4,14 +4,16 @@
 
 $themes: (
 	light: (
-		colorPurple1: $light__colour-purple-1,
-		colorPurple2: $light__colour-purple-2,
-		backgroundColor: #ffffff,
+		colorPrimary: $color-purple-1,
+		colorSecondayr: $color-purple-2,
+		colorBackground: $color-white-1,
+		colorFontBody: $color-grey-1,
 	),
 	dark: (
-		colorPurple1: $dark__colour-purple-1,
-		colorPurple2: $dark__colour-purple-2,
-		backgroundColor: #000000,
+		colorPrimary: $color-white-1,
+		colorSecondary: $color-white-2,
+		colorBackground: $color-grey-1,
+		colorFontBody: $color-white-1,
 	),
 );
 

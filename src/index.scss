@@ -5,9 +5,15 @@
 @import 'styles/_overrides.scss';
 @import 'styles/_themes.scss';
 
+// manual assignment of background colours
 body {
-	@include themify($themes) {
-		background: themed('backgroundColor');
+	&.theme-light {
+		background: $color-white-1;
+		color: $color-grey-1;
+	}
+	&.theme-dark {
+		background: $color-grey-1;
+		color: $color-white-1;
 	}
 }
 
@@ -17,14 +23,17 @@ body {
 	padding-top: 15px;
 	margin-top: 0;
 	margin-bottom: 0;
-	background-color: white;
 	z-index: 2;
+
+	@include themify($themes) {
+		background-color: themed('backgroundColor');
+	}
 
 	.logo {
 		font-size: 20px;
 		padding-left: 15px;
 		@include themify($themes) {
-			color: themed('colorPurple1');
+			color: themed('colorPrimary');
 		}
 
 		position: relative;

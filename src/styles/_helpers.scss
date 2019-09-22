@@ -203,14 +203,14 @@
 	// background-color: $colour-purple-1;
 
 	@include themify($themes) {
-		background-color: themed('colorPurple1');
+		background-color: themed('colorPrimary');
 	}
 }
 .bg-purple-2 {
 	// background-color: $colour-purple-1;
 
 	@include themify($themes) {
-		background-color: themed('colorPurple2');
+		background-color: themed('colorSecondary');
 	}
 }
 

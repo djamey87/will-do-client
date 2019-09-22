@@ -19,9 +19,6 @@ import '../index.scss';
 const App = props => {
 	const { localUser } = props;
 	const [theme, toggleTheme] = useTheme();
-	// const [theme, setTheme] = usePersistedState('theme', 'light');
-	// default state (private to this component)
-	// const [loading, setLoading] = useState(null);
 
 	// this is equivalent to componentDidMount
 	useEffect(() => {
@@ -34,9 +31,15 @@ const App = props => {
 		};
 	}, []);
 
+	// watch for theme changes and apply classname to the body tag
+	useEffect(() => {
+		// should maybe replace with regex, to avoid overriding any other classes attached to the body
+		document.body.className = `theme-${theme}`;
+	}, [theme]);
+
 	return localUser === false ? null : (
 		<Router history={history}>
-			<div className={`theme-${theme}`}>
+			<div>
 				<Header />
 				<Switch>
 					<Route exact path="/" component={Login} />

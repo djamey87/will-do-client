@@ -2,7 +2,21 @@
 @import './_themes.scss';
 
 body {
-	font-family: Open Sans;
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	p,
+	span,
+	a {
+		font-family: Open Sans;
+
+		@include themify($themes) {
+			color: themed('colorFontBody');
+		}
+	}
 }
 
 .logo-font {
@@ -10,20 +24,20 @@ body {
 	// color: $colour-purple-1;
 
 	@include themify($themes) {
-		color: themed('colorPurple1');
+		color: themed('colorPrimary');
 	}
 }
 
 .purple-1 {
 	// color: $colour-purple-1;
 	@include themify($themes) {
-		color: themed('colorPurple1');
+		color: themed('colorPrimary');
 	}
 }
 .purple-2 {
 	// color: $colour-purple-2;
 
 	@include themify($themes) {
-		color: themed('colorPurple2');
+		color: themed('colorSecondary');
 	}
 }
