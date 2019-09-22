@@ -18,9 +18,6 @@ import './index.scss';
 const Header = props => {
 	const { user } = props;
 	const [theme, toggleTheme] = useTheme();
-	// const [theme, setTheme] = usePersistedState('theme', 'light');
-
-	// useEffect(() => {}, [theme]);
 
 	if (!user) {
 		return (
@@ -29,9 +26,12 @@ const Header = props => {
 					will-do
 				</a>
 
-				<div className="right menu">{/*<a className="item active" href="/tasks">
-						Login
-					</a>*/}</div>
+				<div className="right menu">
+					<div className="item pointer" onClick={toggleTheme}>
+						<i className="adjust icon"></i>
+						{theme === 'dark' ? 'Light mode' : 'Dark mode'}
+					</div>
+				</div>
 			</div>
 		);
 	}
