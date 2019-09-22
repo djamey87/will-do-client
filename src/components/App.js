@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { Router, Route, Switch } from 'react-router-dom';
 
-import { ThemeProvider, useTheme } from '../lib/ThemeContext';
+import { useTheme } from '../lib/ThemeContext';
 import history from '../lib/History';
 import AuthRoute from '../lib/AuthRoute';
 

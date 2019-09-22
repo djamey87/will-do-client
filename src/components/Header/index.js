@@ -67,6 +67,7 @@ const Header = props => {
 					<i className="dropdown icon"></i>
 					<div className="menu user-menu">
 						<div className="item" onClick={toggleTheme}>
+							<i className="adjust icon"></i>
 							{theme === 'dark' ? 'Light mode' : 'Dark mode'}
 						</div>
 

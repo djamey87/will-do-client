@@ -19,11 +19,8 @@
 		border: 1px solid;
 
 		@include themify($themes) {
-			border-color: themed('colorTertiary');
-		}
-
-		@include themify($themes) {
 			background-color: themed('colorBackground');
+			border-color: themed('colorTertiary');
 		}
 	}
 }

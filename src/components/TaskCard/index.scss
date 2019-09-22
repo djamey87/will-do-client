@@ -2,4 +2,29 @@
 
 .task-card.ui.card {
 	width: auto;
+
+	@include themify($themes) {
+		background-color: themed('colorBackground');
+	}
+
+	.card-header {
+		display: flex;
+	}
+	.card-header .delete-button {
+		vertical-align: top;
+		margin-left: auto;
+
+		cursor: pointer;
+
+		&:hover,
+		&:focus {
+			@include themify($themes) {
+				color: themed('colorTertiary');
+			}
+		}
+
+		i.close.icon {
+			margin: 0;
+		}
+	}
 }

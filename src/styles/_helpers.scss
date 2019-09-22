@@ -1,6 +1,12 @@
 @import './_variables.scss';
 @import './_themes.scss';
 
+@mixin dropShadow($offsetX: 0, $offsetY: 0, $blur: 10px, $spread: 0, $color: rgba(0, 0, 0, 0.85)) {
+	-webkit-box-shadow: $offsetX $offsetY $blur $spread $color;
+	-moz-box-shadow: $offsetX $offsetY $blur $spread $color;
+	box-shadow: $offsetX $offsetY $blur $spread $color;
+}
+
 .ui {
 	// margin variations
 	.margin-right-5 {
@@ -212,6 +218,10 @@
 	@include themify($themes) {
 		background-color: themed('colorSecondary');
 	}
+}
+
+.drop-shadow {
+	@include dropShadow();
 }
 
 // screen overrides
