@@ -1,7 +1,9 @@
 # will-do
 
 basic react-redux todo application
-utilises data from custom json api server
+Requires todo-server to be running
+
+![](will-do_intro.gif)
 
 The end goal is to clone a hybrid of google keep and toggl
 
