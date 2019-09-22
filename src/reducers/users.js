@@ -8,7 +8,7 @@ const defaultState = {
 export default (state = defaultState, action) => {
 	switch (action.type) {
 		case REGISTER:
-			console.log(`${action.type}`, action);
+			// console.log(`${action.type}`, action);
 			return {
 				...state,
 				userRegistered: true,

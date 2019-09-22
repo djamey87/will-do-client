@@ -1,5 +1,6 @@
 // import _ from 'lodash';
 import { CREATE_TASK, FETCH_TASKS, DELETE_TASK } from '../constants/task';
+import { LOGOUT } from '../constants/auth';
 
 const defaultState = {
 	allTasks: [],
@@ -7,6 +8,9 @@ const defaultState = {
 
 export default (state = defaultState, action) => {
 	switch (action.type) {
+		case LOGOUT:
+			return defaultState;
+
 		case FETCH_TASKS:
 			console.log(`${action.type}`, action.payload.tasks);
 			console.log(`${action.type} state`, state);
