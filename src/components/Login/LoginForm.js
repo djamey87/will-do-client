@@ -8,11 +8,10 @@ let LoginForm = props => {
 	return (
 		<div className="ui middle aligned center aligned grid">
 			<div className="column four wide margin-top-60">
-				<h2 className="ui header">
-					<div className="content">Log in</div>
-				</h2>
+				<h2 className="ui">Log in</h2>
+
 				<form onSubmit={handleSubmit} className="ui large form">
-					<div className="ui stacked segment">
+					<div className="ui stacked">
 						<div className="field">
 							<div className="ui left icon input">
 								<i className="user icon"></i>

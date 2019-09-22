@@ -70,9 +70,9 @@ const Header = props => {
 							{theme === 'dark' ? 'Light mode' : 'Dark mode'}
 						</div>
 
-						<a className="item" href="/deletedTasks">
+						{/*<a className="item" href="/deletedTasks">
 							Deleted Tasks
-						</a>
+						</a>*/}
 						<div className="item" onClick={props.logout}>
 							Logout
 						</div>

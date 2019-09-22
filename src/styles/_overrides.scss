@@ -63,3 +63,9 @@
 		color: themed('colorFontBody');
 	}
 }
+
+form > div {
+	@include themify($themes) {
+		background-color: themed('colorBackground');
+	}
+}
