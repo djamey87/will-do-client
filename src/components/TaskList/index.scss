@@ -1,4 +1,4 @@
-@import '../../styles/_variables.scss';
+@import '../../styles/_themes.scss';
 
 .task-card.ui.card {
 	width: auto;
@@ -6,7 +6,10 @@
 
 .task-form {
 	position: sticky;
-	top: 50px;
+	top: 70px;
 	z-index: 1;
-	background-color: white;
+
+	@include themify($themes) {
+		background-color: rgba(themed('colorBackground'), 0.5);
+	}
 }

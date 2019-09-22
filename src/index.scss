@@ -26,7 +26,7 @@ body {
 	z-index: 2;
 
 	@include themify($themes) {
-		background-color: themed('backgroundColor');
+		background-color: themed('colorBackground');
 	}
 
 	.logo {
