@@ -7,10 +7,10 @@ let CreateTaskForm = props => {
 
 	return (
 		<div className="ui middle aligned center aligned grid task-form">
-			<div className="column four wide">
+			<div className="column four wide task-form-container">
 				<h2 className="">Create a new task</h2>
 				<form onSubmit={handleSubmit} className="ui large form">
-					<div className="ui stacked segment">
+					<div className="ui stacked">
 						<div className="field">
 							<div className="ui input">
 								<Field name="title" placeholder="Title" component="input" type="text" />

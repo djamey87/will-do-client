@@ -6,13 +6,15 @@
 $themes: (
 	light: (
 		colorPrimary: $color-purple-1,
-		colorSecondayr: $color-purple-2,
+		colorSecondary: $color-purple-2,
+		colorTertiary: $color-grey-1,
 		colorBackground: $color-white-1,
 		colorFontBody: $color-grey-1,
 	),
 	dark: (
 		colorPrimary: $color-white-1,
 		colorSecondary: $color-white-2,
+		colorTertiary: $color-grey-1,
 		colorBackground: $color-grey-1,
 		colorFontBody: $color-white-1,
 	),

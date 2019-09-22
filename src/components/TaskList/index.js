@@ -7,6 +7,8 @@ import { createTask, fetchTasks, deleteTask } from '../../actions/task';
 import { toggleNewTaskForm } from '../../actions/ui';
 
 import CreateTaskForm from './CreateTaskForm';
+import TaskCard from '../TaskCard';
+
 import './index.scss';
 
 // TODO:
@@ -58,32 +60,7 @@ class TaskList extends React.Component {
 	renderList = tasks => {
 		// console.log('renderList', tasks);
 		return tasks.map(task => {
-			return (
-				<div className="task-card ui card" key={task._id}>
-					<div className="content">
-						<div className="header">{task.title}</div>
-					</div>
-					<div className="content">
-						<div className="ui small feed">
-							<div className="event">
-								<div className="content">
-									<div className="summary">{task.content}</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div className="extra content">
-						<button
-							className="ui button"
-							onClick={() => {
-								this.onDelete(task);
-							}}>
-							Delete
-						</button>
-						<button className="ui button">Start</button>
-					</div>
-				</div>
-			);
+			return <TaskCard task={task} key={task._id} />;
 		});
 	};
 
