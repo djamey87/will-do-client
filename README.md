@@ -5,7 +5,7 @@ Requires todo-server to be running
 
 ![](will-do_intro.gif)
 
-The end goal is to clone a hybrid of google keep and toggl
+The goal is to create a hybrid of google keep and toggl, both tools I've used heavily over the years, and would be nice to marry the two.
 
 TODO:
 
