@@ -211,14 +211,12 @@ body,
 }
 
 .bg-purple-1 {
-	// background-color: $colour-purple-1;
 
 	@include themify($themes) {
 		background-color: themed('colorPrimary');
 	}
 }
 .bg-purple-2 {
-	// background-color: $colour-purple-1;
 
 	@include themify($themes) {
 		background-color: themed('colorSecondary');
